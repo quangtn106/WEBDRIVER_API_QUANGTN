@@ -15,9 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class Topic_04_Locator {
-	WebDriver driver;
-	WebDriverWait wait;
+public class Topic_02_Locator {
+	private WebDriver driver;
+	private WebDriverWait wait;
 
 	@BeforeTest
 	public void beforeTest() {
