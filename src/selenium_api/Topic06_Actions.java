@@ -33,8 +33,11 @@ public class Topic06_Actions {
     private By doubleClick = By.xpath("//button[text()='Double-Click Me!']");
     //TC004
     private By rightClick = By.xpath("//span[text()='right click me']");
-    private By quit = By.xpath("//li[contains(@class,'context-menu-visible')]");
+    private By quit = By.xpath("//li[contains(@class,'context-menu-icon-quit')]");
     private By quitHover = By.xpath("//li[contains(@class,'context-menu-visible') and contains(@class,'context-menu-hover')]/span[text()='Quit']");
+    //TC005
+    private By dragAble = By.id("draggable");
+    private By target = By.id("droptarget");
 
     @BeforeTest
     public void beforeTest() {
@@ -163,14 +166,20 @@ public class Topic06_Actions {
     private void TC004() {
         driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
         rightClick(rightClick);
-//        waitForElDisplay(quit, 5);
         hoverToEl(quit);
-        waitForElDisplay(quitHover, 5);
         WebElement quit = driver.findElement(quitHover);
         if (quit.isDisplayed()) {
             Assert.assertTrue(true);
         } else {
             Assert.fail("Element does not display");
         }
+    }
+
+    @Test
+    private void TC005(){
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/angular");
+        clickAndDrag(dragAble, target);
+        String actualStr = driver.findElement(target).getText().trim();
+        Assert.assertEquals(actualStr, "You did great!");
     }
 }

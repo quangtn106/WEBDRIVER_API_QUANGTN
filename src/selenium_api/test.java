@@ -1,6 +1,9 @@
 package selenium_api;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Topic05 {
+public class test {
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
@@ -26,14 +29,14 @@ public class Topic05 {
 
 
     @BeforeTest
-    public void beforeTest() {
+    private void beforeTest() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
     @AfterTest
-    public void tearDown() {
+    private void tearDown() {
         driver.quit();
     }
 
@@ -98,32 +101,4 @@ public class Topic05 {
             Assert.fail("currentUrl is wrong, pls re-check: " + currentUrl);
         }
     }
-
-    @Test
-    private void TC002() {
-        driver.get("https://demos.telerik.com/kendo-ui/styling/checkboxes");
-        WebElement el = driver.findElement(ckBox1);
-        checkCustomCkBox(el);
-        Assert.assertTrue(el.isSelected());
-        unCheckCustomCkBox(el);
-        Assert.assertFalse(el.isSelected());
-    }
-
-    @Test
-    private void TC003() {
-        driver.get("https://demos.telerik.com/kendo-ui/styling/radios");
-        WebElement el = driver.findElement(rad1);
-        checkCustomCkBox(el);
-        if (el.isSelected()) {
-            Assert.assertTrue(true);
-        } else {
-            try {
-                checkCustomCkBox(el);
-            } catch (Exception ex) {
-                Assert.fail("Can not select");
-            }
-        }
-    }
-
-
 }
