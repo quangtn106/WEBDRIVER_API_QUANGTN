@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "TestNG">
+
+    <!--<test name = "TC01">-->
+        <!--<classes>-->
+            <!--<class name = "TestNG.TestNG_01_Annotation" />-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "TC02">-->
+        <!--<classes>-->
+            <!--<class name = "TestNG.TestNG_01_Annotation" />-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "Data Provider">-->
+        <!--<classes>-->
+            <!--<class name = "TestNG.TestNG_02_DataProvider" />-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name = "parameter">
+        <parameter name="sUsername" value="testuser_1"/>
+        <parameter name="sPassword" value="Test@123"/>
+        <classes>
+            <class name = "TestNG.TestNG_04_Parameter" />
+        </classes>
+    </test>
+
+</suite>
